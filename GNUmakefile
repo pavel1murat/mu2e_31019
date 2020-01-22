@@ -21,8 +21,7 @@ png: $(pngs)
 
 note: mu2e_31019.tex 
 	if [ ! -d tmp ] ; then mkdir tmp ; fi ; \
-	pdflatex -output-directory=tmp $^ ;
-#	biber tmp/mu2e_31019 ; \
+	pdflatex -output-directory=tmp $^ ; \
 	bibtex tmp/mu2e_31019 ; \
 	pdflatex -output-directory=tmp $^
 
