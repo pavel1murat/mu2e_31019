@@ -1,0 +1,12 @@
+# a note on SINDRUM-II positron spectrum on gold
+
+* note: file:./tmp/mu2e_31019.pdf
+
+* bibliography configuration: <TAB> to expand 
+
+  git clone https://github.com/pavel1murat/mu2e_bibliography.git
+  export BIBINPUTS=${BIBINPUTS}:$PWD/mu2e_bibliography
+
+* converting a *.ris* reference to *.bib* format (need bibutils rpm)
+  
+  cat reference.ris | ris2xml | xml2bib >> ref.bib
