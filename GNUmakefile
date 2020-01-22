@@ -19,10 +19,11 @@ pdf: $(pdfs)
 png: $(pngs) 
 # 	echo $?
 
-note: mu2e_31019.sindrum_ii_positrons_au.tex 
-	if [ ! -f tmp ] ; then mkdir tmp ; fi ; \
-	pdflatex -output-directory=tmp $^ ; \
-	biber tmp/mu2e_31019 ; \
+note: mu2e_31019.tex 
+	if [ ! -d tmp ] ; then mkdir tmp ; fi ; \
+	pdflatex -output-directory=tmp $^ ;
+#	biber tmp/mu2e_31019 ; \
+	bibtex tmp/mu2e_31019 ; \
 	pdflatex -output-directory=tmp $^
 
 all: pdf note

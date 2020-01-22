@@ -37,13 +37,12 @@
 % \fancyhead[C]{}
 % \fancyhead[L] {\it{Mu2e-doc-29670-v1.0} }
 
-% \usepackage[square,sort,comma,numbers]{natbib}
-% \bibliographystyle{unsrtnat}
+\usepackage[square,sort,comma,numbers]{natbib}
 
 % location of the .bib files: env var BIBINPUTS (~/library/bibliography)
 
-\usepackage[backend=biber, style=numeric-comp, sorting=ynt] {biblatex}
-\addbibresource{clfv.bib}
+% \usepackage[backend=biber, style=numeric-comp, sorting=ynt] {biblatex}
+% \addbibresource{clfv.bib}
 
 % \addbibresource{stntuple.bib}
 % \addbibresource{mu2e_web.bib}
@@ -327,8 +326,9 @@ What have we done...
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \bibliography{radiative_muon_capture}
-% \bibliography{clfv}
-\printbibliography
+\bibliographystyle{unsrtnat}
+\bibliography{clfv}
+% \printbibliography
 \end{document}
 
 
