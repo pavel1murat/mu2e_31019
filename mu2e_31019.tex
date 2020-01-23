@@ -36,7 +36,9 @@
 % \pagestyle{fancy}
 % \fancyhead[C]{}
 % \fancyhead[L] {\it{Mu2e-doc-29670-v1.0} }
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% use natbib - biblatex not available on Mu2e interactive nodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[square,sort,comma,numbers]{natbib}
 
 % location of the .bib files: env var BIBINPUTS (~/library/bibliography)
@@ -49,9 +51,15 @@
 % \addbibresource{radiative_pion_capture.bib}
 
 \graphicspath{{figures/}}
-
-\include{commands}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for portability, make sure all commands are included locally
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{commands}
+\newcommand {\Au}[1]     {\mbox{$\rm ^{#1}Au$}}                 % isotopes of gold
+\newcommand {\mumemconv} {\mbox{$\mu^- A \rightarrow e^- A$}}
+\newcommand {\mumepconv} {\mbox{$\mu^- A \rightarrow e^+ A$}}
+\newcommand {\Pb}[1]     {\mbox{$\rm ^{#1}Pb$}}                 % isotopes of lead
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \begin{titlepage}
@@ -137,7 +145,6 @@ Positron spectrum seems to have a bump near its high-momentum endpoint.
 In this note we try to understand what are the implications of this bump
 for the Mu2e search for the process of \mumepconv\ .
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newpage
 \section { Approach}
@@ -165,132 +172,11 @@ above 88 MeV and quantify the observed excess.
 Finally we check if the observed excess is consistent with the signal expected from
 \mumepconv\ on \Au{197}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\newpage
-\section {Parameterization of the SINDRUM-II detector resolution}
-
-placeholder
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_dio_normalized_above_80}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-placeholder
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_fit_sigma}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\newpage
-\section {Tracking Efficiency Parameterization}
-
-placeholder
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_dio_normalized_above_80}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-Tuning the momentum resolution to get the right slope:
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_fit_sigma}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-
-Assume efficiency flat above 80 MeV/c, normalize MC to data in that region:
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_efficiency}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-
-Description of the electron spectrum after tuning:
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/png/ana_step1_best_dio_fit}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\newpage
-\section {RMC spectrum and kMax Determination}
-
-placeholder
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\newpage
-\section {SINDRUM-II momentum scale }
-
-Radiative corrections don't change the height of the spectrum by more than 10\%,,
-check effect of smearing 
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/pdf/mu2e_5645_fig_001_mue3_decay}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-placeholder
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/pdf/sindrum_ii_michel_calibration}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/pdf/sindrum_ii_fig_08_fit}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{detector_resolution}
+\include{tracking_efficiency}
+\include{kmax_determination}
+\include{momentum_scale}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newpage
 \section {Events above 88 MeV and \mumepconv\ signal}

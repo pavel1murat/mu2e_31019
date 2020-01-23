@@ -4,6 +4,8 @@
 #------------------------------------------------------------------------------
 dir=.
 
+tex_files := $(wildcard *.tex)
+
 pdfs := $(patsubst figures/eps/%.eps, figures/pdf/%.pdf,  $(wildcard figures/eps/*.eps ))
 
 pngs := $(patsubst figures/eps/%.eps, figures/png/%.png, $(wildcard figures/eps/*.eps ))
@@ -19,7 +21,7 @@ pdf: $(pdfs)
 png: $(pngs) 
 # 	echo $?
 
-note: mu2e_31019.tex 
+note: $(tex_files) # mu2e_31019.tex detector_resolution.tex tracking_efficiency.tex kmax_determination.tex
 	if [ ! -d tmp ] ; then mkdir tmp ; fi ; \
 	pdflatex -output-directory=tmp $^ ; \
 	bibtex tmp/mu2e_31019 ; \
