@@ -2,10 +2,19 @@
 
 * note: file:./tmp/mu2e_31019.pdf
 
-* bibliography configuration: <TAB> to expand 
+* to check out and build: 
+
+  1) configure bibliography:
 
   git clone https://github.com/pavel1murat/mu2e_bibliography.git
   export BIBINPUTS=${BIBINPUTS}:$PWD/mu2e_bibliography
+
+  2) check out and build the note:
+
+  git clone https://github.com/pavel1murat/mu2e_31019.git
+  cd mu2e_31019
+  make note
+  okular tmp/mu2e_31019.pdf &
 
 * converting a *.ris* reference to *.bib* format (need bibutils rpm)
   

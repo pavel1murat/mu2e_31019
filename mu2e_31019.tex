@@ -114,7 +114,7 @@
 \section { Introduction}
 
 The most stringent search limits for processes of \mumemconv\ and \mumepconv\
-on nuclei come from the SINDRUM-II experiment \cite{sindrum_ii_Bertl2006}.
+on nuclei come from the SINDRUM-II experiment \cite{sindrum_ii:Bertl2006}.
 
 Br($\mu^- Au \rightarrow e^- Au) < 7·10^{-13}$ and
 
@@ -181,12 +181,24 @@ Finally we check if the observed excess is consistent with the signal expected f
 \newpage
 \section {Events above 88 MeV and \mumepconv\ signal}
 
-placeholder
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection {Conversion Signal Resolution}
+\subsection {Expected $\mu^- \rightarrow e^+$ signal in SINDRUM-II detector}
 
+Figure ~\ref{fig:sindrum_ii_ce_signal} shows expected $\mu^- \rightarrow e^-$
+conversion signal in SINDRUM-II detector digitized from Figure 11 of \cite{sindrum_ii:Bertl2006}. 
+The most probable value is at 95.0 MeV, consistent with the most probable energy
+losses of 0.6 MeV in front of the tracker.
+
+For Au, the expected position of $\mu^-\rightarrow e^+$ is about 3.9 MeV/c lower than
+for $\mu^- \rightarrow e^-$ signal, the difference small enough to affect the momentum
+resolution.
+%
+We therefore assume that the position and shape of the $\mu^-\rightarrow e^+$ signal
+expected in the SINDRUM-II detector can be represented with the accuracy
+of about 0.1 MeV/c by the signal shown in Fig. ~\ref{fig:sindrum_ii_ce_signal}
+moved by 4 MeV/c lower.
+
+\vspace{0.1in}
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
     % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
@@ -196,14 +208,98 @@ placeholder
   };
   % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
 \end{tikzpicture}
+\captionof{figure}{
+  \label{fig:sindrum_ii_ce_signal}
+  Expected position and shape of the $\mu^- \rightarrow ~e^-$ conversion signal on Au
+  in SINDRUM-II detector
+}
+\vspace{0.1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection {Positron momentum spectrum}
+
+We therefore shift the expected signal distribution from fig.11 by 4 MeV down
+and show it in Figure \ref{fig:ana_step2_sindrum_positron_best_fit_signal} together
+with the SINDRUM-II positron spectrum. To guide the eye, the signal is normalized
+to 20 events.
+
+The group of events observed above 88 MeV/c is lower than the expected signal by
+about 1 MeV. Statistical uncertainty on their center of gravity is 0.24 MeV/c,
+so the expected $\mu^- \rightarrow e^+$ conversion signal is about 4$\sigma$ higher.
+This strongly disfavors an conversion interpretation of the excess.
+
+However, to make a bump, a statistical fluctuation is required.
+
+There are 456 events in the SINDRUM-II positron spectrum above 77 MeV/c,
+14 events above 88 MeV/c. One - cosmics, 13 events from 88-92 MeV/c.
+Assuming flat distribution: 13*92/4 = 13*23 = est 300 events corresponding to
+the Au(GS) --> Pt(GS) transition.
+
+RMC spectrum with kmax 88 MeV: 13.75\% events above 57 MeV/c.
+TRIUMF measurements: 2000-3000 data events per spectrum, ==> 15,000 - 20,000
+events total.
+
+RMC positron spectrum: 3.3e-4 above 77 MeV/c, 442 events ---> 1.3e6 RMC events total,
+two orders of magnitude higher than per-target statistics of TRIUMF RMC spectrometer.
+
+The extimated branching ratio of exclusive transition would be 
+$\sim 3e^2/1.3e^6 ~ \sim ~ 2e^{-4}$, and for the TRIUMF statistics one would expect
+$2e^4*2e^{-4} ~\sim 5$ events. For a photon energy resolution FWHM $\sim$ 7 MeV,
+it would be rather difficult for the TRIUMF RMC spectrometer group to see 
+exclusive transitions of this strength in the measured spectra. 
+
+\begin{figure}
+\begin{tikzpicture}
+  \node[anchor=south west,inner sep=0] at (0,0.) {
+    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
+    \makebox[\textwidth][c] {
+      \includegraphics[width=1.0\textwidth]{figures/png/ana_step2_sindrum_positron_best_fit_signal}
+    }
+  };
+  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
+\end{tikzpicture}
+% \captionof{figure} {
+\caption {
+  \label{fig:ana_step2_sindrum_positron_best_fit_signal}
+  SINDRUM-II positron spectrum overlayed with the expected background from RMC
+  and a signal from \mumepconv\ normalized to 20 events.
+}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newpage
 \section{ Summary }
 
-What have we done...
-
+\begin{itemize}
+\item
+  SINDRUM-II positron spectrum on Au shows a statistically significant excess
+  of events (roughly, 13 events with 1 expected) if we assume that over the RMC
+  spectrum is described by the closure approximation.
+\item
+  the limit on BGR comes from cosmics and RPC, RMC << 1  event
+\item
+  the excess looks like a bump with the width consistent with the detector
+  resolution
+\item
+  the expected position of $\mu^- \rightarrow e^+$ conversion signal on Au is
+  about 1 MeV/c or, statistically, 4*$\sigma_P$ higher, which strongly discourages
+  the exotic interpretation
+\item
+  the excess could be due to and exclusive RMC transition Au(GS) --> Pt (GS)
+  with the branching fraction of about $2\cdot10^{-4}$, which is spin/parity
+  allowed. Given the statistics and the resolution of the published RMC
+  measurements, such a transition would not be resolved. 
+\item
+  This observation has significant implications for the upcoming searches
+  for the process of $\mu^- \rightarrow e^+$ conversion. 
+  to fully exploit the physics potential of experiments like Mu2e and COMET,
+  a better theoretical understanding of the endpoint of the RMC spectrum
+  on nuclei is needed. 
+\item
+  Without that, the sensitivity for might be limited by the presently unknown
+  dipole RMC transitions to exclusive states of the daughter nuclei. 
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % \section{ Acknowledgements }

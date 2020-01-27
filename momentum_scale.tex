@@ -2,8 +2,32 @@
 \newpage
 \section {SINDRUM-II momentum scale }
 
-Radiative corrections don't change the height of the spectrum by more than 10\%,,
-check effect of smearing 
+In \cite{sindrum_ii:Bertl2006}, momentum scale has been calibrated using
+the edge of Michel spectrum from muon decays $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+at rest. The calibration has been performed with magnetic field reduced to about 50\%
+from the nominal value. The reconstructed positron momentum distribution is shown
+in Figure \ref{fig:sindrum_ii_fig_08_fit}.
+
+\vspace{0.1in}
+\begin{tikzpicture}
+  \node[anchor=south west,inner sep=0] at (0,0.) {
+    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
+    \makebox[\textwidth][c] {
+      \includegraphics[width=0.99\textwidth]{figures/pdf/sindrum_ii_fig_08_fit}
+    }
+  };
+  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
+\end{tikzpicture}
+\captionof{figure} {
+  \label{fig:sindrum_ii_fig_08_fit}
+  Reconstructed momentum spectrum of positrons from $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+  decays used in \cite{sindrum_ii:Bertl2006} for detector momentum calibration.
+}
+\vspace{0.1in}
+
+Although radiative corrections modify the positron spectrum, as shown in Figure  \ref{fig:mu2e_5645_fig_001_mue3_decay}, their impact on the edge of Michel spectrum
+is fairly small, and the reconstructed position and shape of the edge depend primarily
+on the energy losses and the momentum resolution.
 
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
@@ -14,9 +38,36 @@ check effect of smearing
   };
   % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
 \end{tikzpicture}
+\captionof{figure} {
+  \label{fig:mu2e_5645_fig_001_mue3_decay}
+  Monte Carlo momentum spectrum of positrons from $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+  decay. Red: leading order, Blue: with radiative corrections taken into account
+}
+\vspace{0.1in}
 
-placeholder
+We expect the positron momentum referred to in the paper
+to be the momentum in the first reconstructed point on the trajectory. As such, the
+reconstructed Michel edge should be affected by the energy losses in front of the
+tracker their fluctuations as well as the momentum resolution of the tracker.
+According to \cite{sindrum_ii:Bertl2006}, energy losses in front of the tracker are due to losses in the Au target (75 mg/cm$^2$) and the wall of the vacuum chamber (324 mg/cm$^2$).
 
+To cross check the calibration, we simulate energy losses of positrons with initial
+momenta generated uniformly in the range [45,52.8] MeV/c in a structure consisting
+of two layers described above. Initial energy distribution is shown
+in Figure ~\ref{fig:sindrum_ii_michel_calibration}.
+in red, positron momentum distribution on exit is shown in blue.
+Shaded is the positron momentum distribution on exit convoluted with
+the gaussian with $\sigma = 0.55$ MeV/c, which corresponds to the SINDRUM-II
+momentum resolution of 1.3 MeV/c FWHM \cite{sindrum_ii:Kaulard1997_Thesis}.
+From Figure ~\ref{fig:sindrum_ii_michel_calibration} one can see that the effect 
+of double counting of fluctuations of energy losses is small - smearing of the
+positron momentum edge is dominated by the momentum resolution of the tracker.
+
+Fit of the lower part of the smeared momentum edge with the gaussian returns
+$\sigma = 0.63 \pm 0.03$ MeV/c, in agreement with $\sigma = 0.64 \pm 0.03^{fit}$
+returned by the fit of the SINDRUM-II spectrum in Figure ~\ref{fig:sindrum_ii_fig_08_fit}.
+
+\begin{figure} \label{fig:sindrum_ii_michel_calibration}
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
     % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
@@ -26,17 +77,16 @@ placeholder
   };
   % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
 \end{tikzpicture}
+% \caption{figure} {
+\caption{
+  Red: generated flat positron spectrum;
+  Blue: momentum spectrum of positrons from $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+  decay. Red: leading order, Blue: with radiative corrections taken into account
+}
+% \vspace{0.1in}
+\end{figure}
 
-\begin{tikzpicture}
-  \node[anchor=south west,inner sep=0] at (0,0.) {
-    % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
-    \makebox[\textwidth][c] {
-      \includegraphics[width=0.99\textwidth]{figures/pdf/sindrum_ii_fig_08_fit}
-    }
-  };
-  % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
-\end{tikzpicture}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
