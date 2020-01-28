@@ -3,9 +3,9 @@
 \section {SINDRUM-II momentum scale }
 
 In \cite{sindrum_ii:Bertl2006}, momentum scale has been calibrated using
-the edge of Michel spectrum from muon decays $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
-at rest. The calibration has been performed with magnetic field reduced to about 50\%
-from the nominal value. The reconstructed positron momentum distribution is shown
+the edge of the Michel spectrum from muon decays $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+at rest. The calibration has been performed with the magnetic field reduced to about 50\%
+of the nominal value. The reconstructed positron momentum distribution is shown
 in Figure \ref{fig:sindrum_ii_fig_08_fit}.
 
 \vspace{0.1in}
@@ -25,7 +25,7 @@ in Figure \ref{fig:sindrum_ii_fig_08_fit}.
 }
 \vspace{0.1in}
 
-Although radiative corrections modify the positron spectrum, as shown in Figure  \ref{fig:mu2e_5645_fig_001_mue3_decay}, their impact on the edge of Michel spectrum
+Although radiative corrections modify the positron spectrum, as shown in Figure \ref{fig:mu2e_5645_fig_001_mue3_decay}, their impact on the edge of the Michel spectrum
 is fairly small, and the reconstructed position and shape of the edge depend primarily
 on the energy losses and the momentum resolution.
 
@@ -40,31 +40,34 @@ on the energy losses and the momentum resolution.
 \end{tikzpicture}
 \captionof{figure} {
   \label{fig:mu2e_5645_fig_001_mue3_decay}
-  Monte Carlo momentum spectrum of positrons from $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
-  decay. Red: leading order, Blue: with radiative corrections taken into account
+  Monte Carlo momentum spectrum of positrons from the $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
+  decay. Red: leading order, Blue: with radiative corrections taken into account.
 }
 \vspace{0.1in}
 
 We expect the positron momentum referred to in the paper
 to be the momentum in the first reconstructed point on the trajectory. As such, the
 reconstructed Michel edge should be affected by the energy losses in front of the
-tracker their fluctuations as well as the momentum resolution of the tracker.
-According to \cite{sindrum_ii:Bertl2006}, energy losses in front of the tracker are due to losses in the Au target (75 mg/cm$^2$) and the wall of the vacuum chamber (324 mg/cm$^2$).
+tracker, their fluctuations, as well as the momentum resolution of the tracker.
+According to \cite{sindrum_ii:Bertl2006}, the energy losses in front of the tracker are due to 
+losses in the Au target (75 mg/cm$^2$) and the Al wall of the vacuum chamber (324 mg/cm$^2$).
 
 To cross check the calibration, we simulate energy losses of positrons with initial
 momenta generated uniformly in the range [45,52.8] MeV/c in a structure consisting
-of two layers described above. Initial energy distribution is shown
-in Figure ~\ref{fig:sindrum_ii_michel_calibration}.
-in red, positron momentum distribution on exit is shown in blue.
-Shaded is the positron momentum distribution on exit convoluted with
-the gaussian with $\sigma = 0.55$ MeV/c, which corresponds to the SINDRUM-II
+of the two layers described above. The initial energy distribution is shown
+in Figure ~\ref{fig:sindrum_ii_michel_calibration}
+in red, the positron momentum distribution on exit is shown in blue.
+%% Currently not shaded, will it be in another figure iteration?
+Shaded is the positron momentum distribution on exit convolved with
+a Gaussian with $\sigma = 0.55$ MeV/c, which corresponds to the SINDRUM-II
 momentum resolution of 1.3 MeV/c FWHM \cite{sindrum_ii:Kaulard1997_Thesis}.
 From Figure ~\ref{fig:sindrum_ii_michel_calibration} one can see that the effect 
+%% How are we double counting here? In applying the resolution which includes losses after applying losses?
 of double counting of fluctuations of energy losses is small - smearing of the
 positron momentum edge is dominated by the momentum resolution of the tracker.
 
-Fit of the lower part of the smeared momentum edge with the gaussian returns
-$\sigma = 0.63 \pm 0.03$ MeV/c, in agreement with $\sigma = 0.64 \pm 0.03^{fit}$
+The fit of the lower part of the smeared momentum edge with the Gaussian returns
+$\sigma = 0.63 \pm 0.03$ MeV/c, in agreement with $\sigma = 0.64 \pm 0.03^{fit}$ MeV/c
 returned by the fit of the SINDRUM-II spectrum in Figure ~\ref{fig:sindrum_ii_fig_08_fit}.
 
 \begin{figure} 
@@ -80,14 +83,15 @@ returned by the fit of the SINDRUM-II spectrum in Figure ~\ref{fig:sindrum_ii_fi
 % \caption{figure} {
 \caption{
   \label{fig:sindrum_ii_michel_calibration}
-  Red: generated flat positron spectrum;
-  Blue: momentum spectrum of positrons from $\mu^+ \rightarrow e^+ \nu \bar{\nu}$
-  decay. Red: leading order, Blue: with radiative corrections taken into account
+  A flat spectrum with right edge 52.8 MeV is shown in red, the same spectrum convolved with 
+  the expected energy losses is in blue, and then this distribution convolved with
+  a Gaussian with $\sigma$ = 0.55 MeV is shaded.
 }
 % \vspace{0.1in}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t

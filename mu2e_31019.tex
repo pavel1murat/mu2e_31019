@@ -55,10 +55,19 @@
 % for portability, make sure all commands are included locally
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\include{commands}
-\newcommand {\Au}[1]     {\mbox{$\rm ^{#1}Au$}}                 % isotopes of gold
-\newcommand {\mumemconv} {\mbox{$\mu^- A \rightarrow e^- A$}}
-\newcommand {\mumepconv} {\mbox{$\mu^- A \rightarrow e^+ A$}}
+\newcommand {\ra}        {\rightarrow}
+\newcommand {\mumemconv}[1][A] {\mbox{$\mu^- \textrm{#1} \rightarrow e^- \textrm{#1}$}}
+% Define a relay to have 2 default arguments instead of limit of 1
+\newcommand {\mumepconv}[1][A] {%
+  \def\ArgI{{#1}}%store the first argument
+  \mumepconvRelay
+}
+\newcommand \mumepconvRelay[1][A]  {\mbox{$\mu^- \textrm{\ArgI} \rightarrow e^+ \textrm{#1}$}}
+
 \newcommand {\Pb}[1]     {\mbox{$\rm ^{#1}Pb$}}                 % isotopes of lead
+\newcommand {\Au}[1]     {\mbox{$\rm ^{#1}Au$}}                 % isotopes of gold
+\newcommand {\Ir}[1]     {\mbox{$\rm ^{#1}Ir$}}                 % isotopes of iridium
+\newcommand {\kmax}      {k_{\rm max}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
@@ -76,7 +85,7 @@
     
     \vspace{1cm}
     
-    M.MacKenzie (NWU), P.Murat(FNAL)
+    M. MacKenzie (NU), P. Murat(FNAL)
     
     % \footnote{\texttt{Fermilab; e-mail: murat@fnal.gov}}
     \vspace{0.3cm}
@@ -114,61 +123,59 @@
 \section { Introduction}
 
 The most stringent search limits for processes of \mumemconv\ and \mumepconv\
-on nuclei come from the SINDRUM-II experiment \cite{sindrum_ii:Bertl2006}.
+on nuclei come from the SINDRUM-II experiment \cite{sindrum_ii:Bertl2006}:
 
-Br($\mu^- Au \rightarrow e^- Au) < 7·10^{-13}$ and
+$$Br(\mumemconv[Au]) < 7\cdot 10^{-13}$$
+$$Br(\mumepconv[Ti][Ca]) < 1.7\cdot 10^{-12}(GS)$$
 
-$Br(\mu^- Ti \rightarrow e^+ Ca) < 1.7·10^{-12}(GS)$
+SINDRUM-II collected twice as many muon stops on Au data as the 1997 Ti data,
+and their 2006 paper also presented the positron data. However, no limit 
+on \mumepconv\ has been published for this dataset. 
 
-SINDRUM-II collected x2 muon stops on Au data as the 1997 Ti data,
-and their '2006 paper also presented the positron data.
-However no limit on \mumepconv\ has been published.
-
-In this note we're trying to take a close look at the SINDRUM-II positron data
-and understand their implications for the Mu2e search for \mumepconv\ .
 
 \vspace{0.2in}
 \begin{tikzpicture}
+  \hspace*{-1cm}%
   \node[anchor=south west,inner sep=0] at (0,0.) {
     % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
     \makebox[\textwidth][c] {
-      \includegraphics[width=0.8\textwidth]{figures/png/sindrum_ii_2006_fig_11}
+      \includegraphics[width=0.8\textwidth, trim = 0 0 0 30,clip]{figures/png/sindrum_ii_2006_fig_11}
     }
   };
   % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
 \end{tikzpicture}
 \captionof{figure} {
   \label{fig:sindrum_ii_2006_fig_11}
-  SINDRUM-II electron and positron spectra on Au target from 
+  SINDRUM-II electron and positron spectra on an \Au{197}\ target from \cite{sindrum_ii:Bertl2006}.
 }
+\vspace{0.1in}
 
-Positron spectrum seems to have a bump near its high-momentum endpoint.
-In this note we try to understand what are the implications of this bump
-for the Mu2e search for the process of \mumepconv\ .
+The positron spectrum shown in Figure \ref{fig:sindrum_ii_2006_fig_11} seems to have
+a bump near its high-momentum endpoint. In this note we try to understand what the
+implications of this bump are for the Mu2e search for the process of \mumepconv\ .
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newpage
 \section { Approach}
 
-We start from assuming that the dominant background in electron channel comes from DIO,
+We start from assuming that the dominant background in the electron channel comes from DIO,
 while the positron spectrum is dominated by the positrons from RMC photon conversions.
 For \Au{197}, these assumptions hold better for positrons than for electrons:
 in the vicinity of 90 MeV, RMC electrons also need to be taken into account.
-There are more electrons than positrons (Compton scattering of the RMC photons),
+There are more RMC electrons than positrons (Compton scattering of the RMC photons),
 so we just acknowledge the fact, but don't take any action, as the momentum distribution
 of the electrons due to Compton scattering is not given in the 2006 paper.
 
-SINDRUM-II used DIO spectrum on Pb tabulated in \cite{Watanabe_1993} and corrected for the
-difference of binding energies in \Au{197} and \Pb{208} for the DIO.
-
+SINDRUM-II used the DIO spectrum on Pb tabulated in \cite{Watanabe_1993} and corrected for the
+difference of binding energies in \Au{197} and \Pb{208}.
 We use the electron spectrum to develop a simple parameterized model of
 the SINDRUM-II detector response. The parameters include the momentum resolution,
 assumed to be constant, and the overall reconstruction efficiency dependence on the 
 track momentum.
 
-We then use the response model to fit the positron spectrum below 88 MeV and
-determine the RMC kMax. After that, we can predict the expected background
-above 88 MeV and quantify the observed excess.
+We then use the response model to fit the positron spectrum below 88 MeV/c and
+determine the RMC $\kmax$. After that, we can predict the expected background
+above 88 MeV/c and quantify the observed excess.
 
 Finally we check if the observed excess is consistent with the signal expected from
 \mumepconv\ on \Au{197}.
@@ -186,28 +193,26 @@ Finally we check if the observed excess is consistent with the signal expected f
 \subsection {Positron momentum spectrum}
 
 Figure \ref{fig:ana_step2_ppos_best_fit} overlays the SINDRUM-II positron spectrum on
-\Au{197}\ target with the closure approximation spectrum convoluted with the 
+the \Au{197}\ target with the closure approximation spectrum convolved with the 
 parameterized model of the SINDRUM-II detector response.
 
-There are 14 events above 88 MeV in the data.
+There are 14 events above 88 MeV/c in the data.
 
-Looking at the data above 94 MeV, we can estimate the background due to radiative
+Looking at the data above 94 MeV/c, we can estimate the background due to radiative
 pion capture (RPC) and cosmics to be of the order of one event.
-Prediction of the closure approximation-based RMC model gives significantly less
-than one event.
+The prediction the closure approximation-based RMC model gives is significantly less
+than one event above 88 MeV/c.
 
-We therefore need to ask whether the closure approximation gives a reliable
-description of the RMC positron spectrum near the end point. The closure approximation
+We therefore need to ask whether the closure approximation reliably
+describes the RMC positron spectrum near the endpoint. The closure approximation
 doesn't take into account transitions to the exclusive low-lying states of the daughter
 nucleus.
 
-In case of the \Au{197} target, a transition \Au{197} --> $^{197}Pt$ to
-the ground state of Pt nucleus is allowed. Given that the energy splitting between
-an electron and a positron from the photon conversion is almost uniform,
+In the case of the \Au{197} target, a transition \Au{197} $\ra$ $^{197} \rm Pt$ to
+the ground state of the Pt nucleus is allowed. Given that the energy splitting between
+an electron and a positron from a photon conversion is almost uniform,
 the positron spectrum corresponding to such a transition, in a first approximation,
-should be flat. 
-
-probability of the order of $10^-3$, 
+should be flat. This transistion would have a probability of the order of $10^{-3}$.
 
 \vspace{0.1in}
 \begin{tikzpicture}
@@ -221,35 +226,36 @@ probability of the order of $10^-3$,
 \end{tikzpicture}
 \captionof{figure} {
   \label{fig:ana_step2_ppos_best_fit}
-  best fit of the SINDRUM-II positron spectrum with the closure approximation
-  spectrum convoluted with the parameterized model of the SINDRUM-II detector
-  response
+  Best fit of the SINDRUM-II positron spectrum with the closure approximation
+  spectrum convolved with the parameterized model of the SINDRUM-II detector
+  response.
 }
 \vspace{0.1in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Final states with the broken down  daughter nucleus}
+\subsection{Final states with the broken down daughter nucleus}
 
 As a daughter nucleus produced in the process of radiative muon capture can
-break down and emit one or several protons or neutrons, one could ask whether
+breakdown and emit one or several protons or neutrons, one could ask whether
 photons from transitions
 $$
 \mu + \Au{197} \rightarrow \gamma + \nu + ^{197-k}Pt + k \rm ~neutrons
 $$
 or 
 $$
-\mu + \Au{197} \rightarrow \gamma + \nu + ^{197-k}A_{Z=79-k} + k \rm ~protons
+\mu + \Au{197} \rightarrow \gamma + \nu + ^{197-k}A_{Z=78-k} + k \rm ~protons
 $$
 
-could have a higher positron energy spectrum end point.
+could have a higher positron energy spectrum endpoint.
 Figure ~\ref{fig:pt197_dmass} shows the distributions for mass differences
-between the final states consisting of (A'+k neutrons) and (A' + k protons),
-and the ground state of $^{197}Pt$. Based on those distributions one can conclude
+between the final states consisting of ($^{197-k} \rm Pt$ + k neutrons) and ($^{197-k}A_{Z=78-k}$ + k protons),
+and the ground state of $^{197} \rm Pt$. Based on those distributions one can conclude
 that events with the most energetic photons and, as such, most energetic 
-positrons should correspond to transitions with ``unbroken'' $^{197}Pt$ nucleus
+positrons should correspond to transitions with ``unbroken'' $^{197} \rm Pt$ nucleus
 in the final state.
 
 \vspace{0.1in}
+\hspace*{-1.3cm}%
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (-2.0,0.0) {
     % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
@@ -268,28 +274,28 @@ in the final state.
 \captionof{figure} {
   \label{fig:pt197_dmass}
   Mass differences between the final state with the broken down daughter nucleus
-  and $^{197} Pt$ for different breakdown scenarios.
-  The final state with ``unbroken'' $^{197} Pt$ always has the lowest mass and,
-  therefore, the highest photon spectrum endpoint
+  and $^{197} \rm Pt$ for different breakdown scenarios.
+  The final state with ``unbroken'' $^{197} \rm Pt$ always has the lowest mass and,
+  therefore, the highest photon spectrum endpoint.
 }
 \vspace{0.1in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection {Expected $\mu^- \rightarrow e^+$ signal in SINDRUM-II detector}
+\subsection {Expected $\mumepconv$ signal in SINDRUM-II detector}
 
-Figure ~\ref{fig:sindrum_ii_ce_signal} shows expected $\mu^- \rightarrow e^-$
-conversion signal in SINDRUM-II detector digitized from Figure 11 of \cite{sindrum_ii:Bertl2006}. 
-The most probable value is at 95.0 MeV, consistent with the most probable energy
+Figure \ref{fig:sindrum_ii_ce_signal} shows expected $\mumemconv[Au]$
+conversion signal in the SINDRUM-II detector, digitized from Figure 11 of \cite{sindrum_ii:Bertl2006}. 
+The most probable value is at 95.0 MeV/c, consistent with the most probable energy
 losses of 0.6 MeV in front of the tracker.
 
-For Au, the expected position of $\mu^-\rightarrow e^+$ is about 3.9 MeV/c lower than
-for $\mu^- \rightarrow e^-$ signal, the difference small enough to affect the momentum
+For Au, the expected position of $\mumepconv[Au][Ir]$ is about 3.9 MeV/c lower than
+for the $\mumemconv[Au]$ signal; the difference is small enough to not affect the momentum
 resolution.
 %
 We therefore assume that the position and the shape of the $\mu^-\rightarrow e^+$
 signal reconstructed in the SINDRUM-II detector can be reproduced by moving
-the $\mu^- \rightarrow e^- $signal shown in Fig. ~\ref{fig:sindrum_ii_ce_signal}
-by 4 MeV/c towards lower energies.
+the $\mu^- \rightarrow e^- $signal shown in Figure \ref{fig:sindrum_ii_ce_signal}
+by 4 MeV/c towards lower momenta.
 
 \vspace{0.1in}
 \begin{tikzpicture}
@@ -303,63 +309,68 @@ by 4 MeV/c towards lower energies.
 \end{tikzpicture}
 \captionof{figure}{
   \label{fig:sindrum_ii_ce_signal}
-  Expected position and shape of the $\mu^- \rightarrow ~e^-$ conversion signal on Au
-  in SINDRUM-II detector
+  The expected position and shape of the $\mu^- \rightarrow ~e^-$ conversion signal on Au
+  in the SINDRUM-II detector.
 }
 \vspace{0.1in}
 
 Shown in Figure \ref{fig:ana_step2_sindrum_positron_best_fit_signal} is the expected
-\mumepconv\ signal on Au target together with the SINDRUM-II positron spectrum and the
-RMC background which normalization comes from the fit to the data. To guide the eye,
+\mumepconv\ signal on the \Au{197}\ target together with the SINDRUM-II positron spectrum and the
+RMC background whose normalization comes from the fit to the data. To guide the eye,
 the signal is normalized to 20 events.
 
 Interestingly, the event excess above 88 MeV/c has a shape consistent with the shape
-of $\mu^- \rightarrow e^+$ signal, however the average momentum of events in the group
-is about 1 MeV lower than expected from the signal.
+of $\mu^- \rightarrow e^+$ signal; however, the average momentum of the events in the group
+is about 1 MeV/c lower than expected from the signal.
 The estimated statistical uncertainty on the position of the center of gravity of those
 events is 0.24 MeV/c, so the expected position of the $\mu^- \rightarrow e^+$ conversion
 signal is about 4$\sigma$ higher than calculated from the data.
-This strongly disfavors the exotic ($mu e$ conversion) interpretation of the excess.
+This strongly disfavors the exotic ($\mu e$ conversion) interpretation of the excess.
 
-The track charge mis-identification probability of in the SINDRUM-II detector
+The track charge mis-identification probability in the SINDRUM-II detector
 is about 0.2\% \cite{sindrum_ii:Kaulard1998}, and can't explain the positron excess.
 %
 However, an excess of positron events near the RMC spectrum endpoint could be due
 to a process of RMC accompanied by a transition to an exclusive final state
-of the $^{197}Pt$ nucleus. As the ground state of \Au{197} has spin parity $3/2^+$
-and the ground state of $^{197}Pt$ has spin-parity of $1/2-$, a dipole transition
+of the $^{197}\rm Pt$ nucleus. As the ground state of \Au{197} has spin parity $3/2^+$
+and the ground state of $^{197} \rm Pt$ has spin-parity of $1/2-$, a dipole transition
 between these two states is allowed and could result in a mono-energetic photons
 with the energy E = 93.8 MeV. A uniform, in the first approximation, distribution
 of the electron-positron energy splitting, could result in a a flat contribution 
 added, near the endpoint, to the rapidly falling RMC spectrum. 
 
-There are 456 events in the SINDRUM-II positron spectrum with P > 77 MeV/c,
-14 out of those have P > 88 MeV/c. Attributing one event - with the highest
+There are 456 events in the SINDRUM-II positron spectrum with p > 77 MeV/c,
+14 out of those have p > 88 MeV/c. Attributing one event - with the highest
 momentum - to cosmics, we're left with 13 events with the reconstructed 
 positron momenta in the region 88-92 MeV/c. Assuming that all of them are due
-to the Au(GS) --> Pt(GS) RMC transition, one can estimate the total number
-of such events at $13*92/4 = 13*23 \sim\ 300$ events.
-%
-For an RMC spectrum with $k_{max}= 88$ MeV shown in Figure ~\ref{fig:rmc_photon_and_positron_spectra}, 
-about 14\% events have the photon energy above 57 MeV/c.
-TRIUMF RMC spectrometer measured 2000-3000 data events per spectrum \cite{}, that translates
+to the Au(GS) $\ra$ Pt(GS) RMC transition, and so assuming a flat positron spectrum
+from 0 - 92 MeV/c, one can estimate the total number
+%% Should the range be 0 - 93.3 MeV/c? Since E_transition = 93.8 MeV? Or are we excluding
+%% the > 92 MeV as there are no events?
+of such events as $13\text{ events}/4\text{ MeV/c}\cdot 92\text{ MeV/c} = 13\cdot 23 \sim\ 300$ events.
+
+For an RMC spectrum with $\kmax = 88$ MeV, shown in Figure ~\ref{fig:rmc_photon_and_positron_spectra}, 
+about 14\% of events have photon energies above 57 MeV.
+The TRIUMF RMC spectrometer measured 2000-3000 data events per spectrum \cite{}, which translates
 into 15,000 - 20,000 events in the whole spectrum per nuclear target. 
 
-Similarly, for $k_{max}= 88$ MeV, about $3.3\cdot 10^{-4}$ of all RMC positrons have
-P > 77 MeV/c. So assuming momentum-independent efficiency, 442 reconstructed events
-would correspond to 1.3e6 RMC events in the total spectrum and 1.9e5 RMC events with
-the reconstructed photon P > 57 MeV. That is two orders of magnitude higher than
+Similarly, for $\kmax= 88$ MeV, about $3.3\cdot 10^{-4}$ of all RMC positrons have
+p > 77 MeV/c. So assuming momentum-independent efficiency, 442 reconstructed events
+would correspond to $1.3\cdot 10^6$ RMC events in the total spectrum and $1.9\cdot 10^5$ RMC events with
+the photon p > 57 MeV/c. This is two orders of magnitude higher than
 per-target statistics of the TRIUMF RMC spectrometer.
 
 \begin{figure}
+  \hspace*{-1.3cm}%
   \begin{tikzpicture}
-    \node[anchor=south west,inner sep=0] at (-2.0,0.) {
+    \node(base) at (5,0){};
+    \node[anchor=south west,inner sep=0] at (0.0,0.) {
       % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
       % \makebox[\textwidth][c] {
       \includegraphics[width=0.6\textwidth]{figures/pdf/rmc_photon_spectrum_kmax_88}
       % }
     };
-    \node[anchor=south west,inner sep=0] at (6.0,0.0) {
+    \node[anchor=south west,inner sep=0] at (8.1,0.0) {
       % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
       % \makebox[\textwidth][c] {
       \includegraphics[width=0.6\textwidth]{figures/pdf/rmc_positron_spectrum_kmax_88}
@@ -370,13 +381,14 @@ per-target statistics of the TRIUMF RMC spectrometer.
   % \captionof{figure} {
   \caption {
     \label{fig:rmc_photon_and_positron_spectra}
-    RMC photon (left) and $e^+$ (right) momentum spectra, $k_{max} = 88$ MeV/c
+    RMC photon (left) and $e^+$ (right) momentum spectra for $\kmax = 88$ MeV.
   }
 \end{figure}
 
-The extimated branching ratio of the exclusive GS->GS transition would be 
-$\sim 3e^2/1.3e^6 ~ \sim ~ 2e^{-4}$, and for the TRIUMF statistics one would expect
-$2e^4*2e^{-4} ~\sim 5$ events. For a photon energy resolution FWHM $\sim$ 7 MeV,
+
+The estimated branching ratio of the exclusive transition would be 
+$\sim 3\cdot 10^2/1.3\cdot 10^6 ~ \sim ~ 2\cdot 10^{-4}$, and for the TRIUMF statistics one would expect
+$2\cdot 10^4\cdot 2\cdot 10^{-4} ~\sim 5$ events. For a photon energy resolution of FWHM $\sim$ 7 MeV,
 it would be rather difficult for the TRIUMF RMC spectrometer group to resolve exclusive
 transitions of such strength in the measured spectra. 
 
@@ -410,16 +422,16 @@ transitions of such strength in the measured spectra.
   SINDRUM-II positron spectrum on Au target shows a statistically significant
   excess of events (roughly, 13 events with 1 expected) over the background
 \item
-  the limit on BGR comes from cosmics and RPC, RMC << 1  event
+  The limit on BGR comes from cosmics and RPC, RMC $\ll$ 1  event.
 \item
-  the excess looks like a bump with the width consistent with the detector
-  resolution
+  The excess looks like a bump with the width consistent with the detector
+  resolution.
 \item
-  the expected position of $\mu^- \rightarrow e^+$ conversion signal on Au is
+  The expected position of $\mu^- \rightarrow e^+$ conversion signal on Au is
   about 1 MeV/c or, statistically, 4*$\sigma_P$ higher, which strongly discourages
-  the exotic interpretation
+  the exotic interpretation.
 \item
-  the excess could be due to and exclusive RMC transition Au(GS) --> Pt (GS)
+  The excess could be due to an exclusive RMC transition Au(GS) $\ra$ Pt (GS)
   with the branching fraction of about $2\cdot10^{-4}$, which is spin/parity
   allowed. Given the statistics and the resolution of the published RMC
   measurements, such a transition would not be resolved. 
@@ -427,11 +439,11 @@ transitions of such strength in the measured spectra.
   This observation has significant implications for the upcoming
   searches
   for the process of $\mu^- \rightarrow e^+$ conversion. 
-  to fully exploit the physics potential of experiments like Mu2e and COMET,
+  To fully exploit the physics potential of experiments like Mu2e and COMET,
   a better theoretical understanding of the endpoint of the RMC spectrum
   on nuclei is needed. 
 \item
-  Without that, the sensitivity for might be limited by the presently unknown
+  Without that, the sensitivity for these searches might be limited by the presently unknown
   dipole RMC transitions to exclusive states of the daughter nuclei. 
 \end{itemize}
 
@@ -441,10 +453,72 @@ transitions of such strength in the measured spectra.
 % We want to thank ...
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \bibliography{radiative_muon_capture}
+
+\appendix
+\section{$\mumepconv[Au][Ir]$ energy calculation}
+%% Assumes 197Au --> 197 Ir GS, which is 3/2+ --> 3/2+
+We consider only the ground state conversion process. 
+For this, the conversion energy is given by:
+$$
+E_{e^+} = m_\mu - B_\mu - E_{recoil} - \Delta_{Z-2}
+$$
+
+where $m_\mu$ is the muon mass, $B_\mu$ is the binding energy of the 1s energy level,
+$E_{recoil}$ is the energy of the recoiling nucleus, and $\Delta_{Z-2}$ is the difference
+between the incoming and outgoing nuclear masses. 
+
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{|l || c |}
+      \hline
+      Parameter & Value  \\
+      \hhline{|=||=|}
+      $m_\mu$ & 105.6583745(24) MeV/c$^2$\\
+      \hline
+      $m_e$   & 0.5109989461(31) MeV/c$^2$\\ %6.1e-9
+      \hline
+      $1u$ & 931.49410242(28) MeV/c$^2$ \\ %3e-10
+      \hline
+      $B_\mu$ & 10.04 MeV\\ %?
+      \hline
+      $A_r(\Au{197})$ & 196.96656879(71) u \\%~1e-8
+      \hline
+      $M_N(\Au{197})$ & 183432.828(1) MeV/c$^2$\\%~1-2 e-8
+      \hline
+      $A_r(\Ir{197})$ & 196.969 655(22) u \\%~1e-7
+      \hline
+      $M_N(\Ir{197})$ & 183436.725(21) MeV/c$^2$ \\%~1e-7
+      \hline
+      $\Delta_{Z-2}$ & 3.897(21) MeV/c$^2$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \caption{Parameters used in the $\mumepconv[Au][Ir]$ positron energy calculation.}
+  \label{table:parameters}
+\end{table}
+
+Since the muon orbit is $\sim$ 200 times closer to the nucleus than the electrons',
+one can assume the electrons do not contribute to the muon capture process. Therefore,
+the electron masses are not considered and instead only the nuclear masses are used:
+$M_N = M_A-Z\cdot m_e$, where $M_A=A_r\cdot u$, $A_r$ is the relative mass, 
+u is the atomic mass unit, and $m_e$ is the electron mass.
+
+The recoiling energy is given by considering the two body decay: $N(\mu^-+\Au{197}) \ra e^+ + \Ir{197}$.
+Considering the rest frame of the muonic gold atom, the decay products must satisfy
+$p_{e^+} + p_{^{197}Ir} = p_{o} = 0$. The energy of the iridium mucleus is then given by:
+$$
+E_{^{197}Ir} = \frac{M^2 + M_N(\Ir{197})^2 - m_e^2}{2M} = E_{recoil} + M_N(\Ir{197})
+$$
+where M is the mass of the muonic gold nucleus system, $M_N(\Au{197}) + m_\mu - B_\mu = 183528.446$ MeV/c$^2$.
+Using the parameters in Table \ref{table:parameters}, we get $E_{recoil} = 0.023$ MeV.
+
+Combining these together, the $\mumepconv[Au][Ir]$ positron energy for the ground state
+transition is $E_{e^+} = 92.698(25)$ MeV, where the uncertainty on $B_\mu$ is assumed to be 0.01 MeV.
+
 \bibliographystyle{unsrtnat}
+%% \bibliography{radiativeMuonCapture}
 \bibliography{clfv,dio,radiative_muon_capture}
-% \printbibliography
+%% \printbibliography
 \end{document}
 
 

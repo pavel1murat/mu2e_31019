@@ -24,7 +24,9 @@ png: $(pngs)
 note: $(tex_files) # mu2e_31019.tex detector_resolution.tex tracking_efficiency.tex kmax_determination.tex
 	if [ ! -d tmp ] ; then mkdir tmp ; fi ; \
 	pdflatex -output-directory=tmp $^ ; \
-	bibtex tmp/mu2e_31019 ; \
+	cd tmp ; \
+	bibtex mu2e_31019 ; \
+	cd .. ; \
 	pdflatex -output-directory=tmp $^
 
 all: pdf note

@@ -3,12 +3,12 @@
 \section {Parameterization of the SINDRUM-II detector response}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Momentum Resolution}
+\subsection{Momentum resolution}
 
 Figure ~\ref{fig:dio_1} overlays the electron momentum spectrum measured by SINDRUM-II
-and shifted by 0.5 MeV DIO spectrum on \Pb{208} calculated in \cite{Watanabe_1993}.
-it is clear, that the two spectra have quite different slopes.
-The sign of the difference is easy to understand as in case of a rapidly falling
+and the DIO spectrum on \Pb{208} calculated in \cite{Watanabe_1993} shifted by 0.5 MeV.
+It is clear that the two spectra have quite different slopes.
+The sign of the difference is easy to understand; in the case of a rapidly falling
 spectrum, the finite experimental resolution smears the spectrum and effectively
 reduces the observed slope. 
 
@@ -24,23 +24,23 @@ reduces the observed slope.
 \end{tikzpicture}
 \captionof{figure} {
   \label{fig:dio_1}
-  SINDRUM-II electron spectrum overlayed with the DIO spectrum from \cite{Watanabe_1993}.
-  The two spectra are normalized to the same area for p > 80 MeV/c
+  SINDRUM-II electron spectrum overlaid with the DIO spectrum from \cite{Watanabe_1993}.
+  The two spectra are normalized to the same area for p > 80 MeV/c.
 }
-
 \vspace{0.2in}
+
 We make a [simplified] assumption that the detector momentum resolution response
-is symmetric and can be described by a single gaussian function. 
+is symmetric and can be described by a single Gaussian function. 
 The experimental momentum resolution is one of the parameters of the detector response model.
-To choose the optimal value, we vary the resolution in the range [1, 3.5] MeV/c, convolute the
+To choose the optimal value, we vary the resolution in the range [1, 3.5] MeV/c, convolve the
 theoretical DIO spectrum with the given resolution, and use the resulting distribution to fit
-the SINDRUM-II electron spectrum. Fit has one parameter - normalization. Fit chi2 dependence
-on the $\sigma_P$ is shown in Figure ~\ref{fig:ana_step1_fit_sigma}, the best value of the resolution
+the SINDRUM-II electron spectrum. The fit has one parameter - normalization. The fit $\chi^2$ dependence
+on $\sigma_P$ is shown in Figure ~\ref{fig:ana_step1_fit_sigma}, the best value of the resolution
 parameter is $\sigma_P = 2.0 \pm 0.1$ MeV/c. This value is significantly higher than the momentum
 resolution of the SINDRUM-II detector and is likely due to that contribution of RMC electrons
 not accounted for in the procedure. As one can see from Figure ~\ref{fig:sindrum_ii_2006_fig_11},
-for momenta close to 90 MeV/c, contribution of RMC could be non-negligible. As the RMC spectrum
-is less steep than the DIO one, ignoring RMC contribution should result in larger value of the
+for momenta close to 90 MeV/c, the contribution of RMC could be non-negligible. As the RMC spectrum
+is less steep than the DIO one, ignoring the RMC contribution should result in a larger value of the
 best resolution parameter returned by the procedure described above.
 
 \vspace{0.2in}
@@ -48,7 +48,7 @@ best resolution parameter returned by the procedure described above.
   \node[anchor=south west,inner sep=0] at (0,0.) {
     % \node[shift={(0 cm,0.cm)},inner sep=0,rotate={90}] at (0,0) {}
     \makebox[\textwidth][c] {
-      \includegraphics[width=0.9\textwidth]{figures/png/ana_step1_fit_sigma}
+      \includegraphics[width=0.9\textwidth, trim = 0 0 0 200, clip]{figures/png/ana_step1_fit_sigma}
     }
   };
   % \node [text width=6cm, scale=0.8] at (4.5,6.4) {mu2e-18894 by Kevin Lynch and Jim Popp};
@@ -56,21 +56,20 @@ best resolution parameter returned by the procedure described above.
 %
 \captionof{figure} {
   \label{fig:ana_step1_fit_sigma}
-  chi2 of the fit of the SINDRUM-II DIO electron spectrum with the theoretical distribution
-  convoluted with a gaussian with given resolution $\sigma_P$ as a function of $\sigma_P$.
+  $\chi^2$ of the fit of the SINDRUM-II DIO electron spectrum with the theoretical distribution
+  convolved with a Gaussian with given resolution $\sigma_P$ as a function of $\sigma_P$.
 }
 \vspace{0.2in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tracking Efficiency}
+\subsection{Tracking efficiency}
 
 To parameterize the SINDRUM-II tracking efficiency, we assume that it is flat
-above 80 MeV/c. Normalizing the DIO spectrum convoluted with $\sigma_P = 2.0$ MeV/c
-resolution to the electron data in the region p > 80 MeV and dividing the data spectrum
+above 80 MeV/c. Normalizing the DIO spectrum convolved with $\sigma_P = 2.0$ MeV/c
+resolution to the electron data in the region p > 80 MeV/c and dividing the data spectrum
 by the resulting distribution gives the ``efficiency'' dependence on the track momentum
-shown in Figure ~\ref{fig:ana_step1_efficiency}
-
-Assume efficiency flat above 80 MeV/c, normalize MC to data in that region:
+shown in Figure ~\ref{fig:ana_step1_efficiency}. This distribution is fit well by a 
+linear efficiency below 80 MeV/c and flat above this.
 
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
@@ -86,12 +85,12 @@ Assume efficiency flat above 80 MeV/c, normalize MC to data in that region:
   \label{fig:ana_step1_efficiency}
   Parameterization of the SINDRUM-II efficiency vs the track momentum.
   Definition of efficiency includes all components - trigger, reconstruction and selection.
-  Overall normalization is chosen such that efficiency is equal to one for p > 80 MeV/c
+  Overall normalization is chosen such that efficiency is equal to one for p > 80 MeV/c.
 }
 \vspace{0.2in}
 
-This step concludes tuning of the detector response, Figure \ref{fig:ana_step1_best_dio_fit}.
-shows description of the electron spectrum with the tuned response.
+This step concludes tuning of the detector response. Figure \ref{fig:ana_step1_best_dio_fit}
+shows the description of the electron spectrum with the tuned response.
 
 \vspace{0.2in}
 \begin{tikzpicture}
@@ -106,6 +105,6 @@ shows description of the electron spectrum with the tuned response.
 %
 \captionof{figure} {
   \label{fig:ana_step1_best_dio_fit}
-  Description of the electron spectrum on Au target from \cite{sindrum_ii:Bertl2006}
+  Description of the electron spectrum on the Au target from \cite{sindrum_ii:Bertl2006}
   with the tuned model of the SINDRUM-II detector response.
 }
