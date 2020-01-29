@@ -344,9 +344,8 @@ There are 456 events in the SINDRUM-II positron spectrum with p > 77 MeV/c,
 momentum - to cosmics, we're left with 13 events with the reconstructed 
 positron momenta in the region 88-92 MeV/c. Assuming that all of them are due
 to the Au(GS) $\ra$ Pt(GS) RMC transition, and so assuming a flat positron spectrum
-from 0 - 92 MeV/c, one can estimate the total number
-%% Should the range be 0 - 93.3 MeV/c? Since E_transition = 93.8 MeV? Or are we excluding
-%% the > 92 MeV as there are no events?
+from 0 - 93.3 MeV/c, one can estimate the total number
+%% Update to reflect positron range
 of such events as $13\text{ events}/4\text{ MeV/c}\cdot 92\text{ MeV/c} = 13\cdot 23 \sim\ 300$ events.
 
 For an RMC spectrum with $\kmax = 88$ MeV, shown in Figure ~\ref{fig:rmc_photon_and_positron_spectra}, 
@@ -456,7 +455,6 @@ transitions of such strength in the measured spectra.
 
 \appendix
 \section{$\mumepconv[Au][Ir]$ energy calculation}
-%% Assumes 197Au --> 197 Ir GS, which is 3/2+ --> 3/2+
 We consider only the ground state conversion process. 
 For this, the conversion energy is given by:
 $$
@@ -479,7 +477,7 @@ between the incoming and outgoing nuclear masses.
       \hline
       $1u$ & 931.49410242(28) MeV/c$^2$ \\ %3e-10
       \hline
-      $B_\mu$ & 10.04 MeV\\ %?
+      $B_\mu$ & 10081.23 keV\\ %?
       \hline
       $A_r(\Au{197})$ & 196.96656879(71) u \\%~1e-8
       \hline
@@ -509,14 +507,13 @@ $p_{e^+} + p_{^{197}Ir} = p_{o} = 0$. The energy of the iridium mucleus is then 
 $$
 E_{^{197}Ir} = \frac{M^2 + M_N(\Ir{197})^2 - m_e^2}{2M} = E_{recoil} + M_N(\Ir{197})
 $$
-where M is the mass of the muonic gold nucleus system, $M_N(\Au{197}) + m_\mu - B_\mu = 183528.446$ MeV/c$^2$.
+where M is the mass of the muonic gold nucleus system, $M_N(\Au{197}) + m_\mu - B_\mu = 183528.405$ MeV/c$^2$.
 Using the parameters in Table \ref{table:parameters}, we get $E_{recoil} = 0.023$ MeV.
 
 Combining these together, the $\mumepconv[Au][Ir]$ positron energy for the ground state
-transition is $E_{e^+} = 92.698(25)$ MeV, where the uncertainty on $B_\mu$ is assumed to be 0.01 MeV.
+transition is $E_{e^+} = 92.657(21)$ MeV, where the uncertainty on $B_\mu$ is assumed to be $\sim$0.001 MeV.
 
 \bibliographystyle{unsrtnat}
-%% \bibliography{radiativeMuonCapture}
 \bibliography{clfv,dio,radiative_muon_capture}
 %% \printbibliography
 \end{document}
