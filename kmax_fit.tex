@@ -3,7 +3,7 @@
 \section {RMC spectrum and $\kmax$ determination}
 
 Measured RMC photon spectra on nuclei can be successfully described within 
-the closure approximation which predicts the RMC photon spectrum depending
+the closure approximation, which predicts the RMC photon spectrum depending
 on just one parameter - the photon spectrum endpoint:
 $$
     \frac{dN}{dE} ~=~ \frac{e^2}{\pi} \frac{\kmax^2}{ m_{\mu}^2} (1 - \alpha) (1-x+2x^2)x(1-x)^2
@@ -14,6 +14,12 @@ and $x = E/\kmax$ \cite{Christillin_1980}.
 Values of $\kmax$ for different nuclei are not predicted, but determined from the fits
 to experimental data. Typically, fits return $\kmax$ values significantly lower than
 the kinematically allowed limits. 
+
+Internal conversions from RMC will also contribute to the measured spectrum, but as the virtual
+photon energy distribution should be the same as the real RMC photon energy
+distribution, and since the energy sharing between the positron and electron
+is similar to that of photon conversions, this contribution should be captured by
+fitting the spectrum normalization.
 
 We determine the value of the $\kmax$ parameter by fitting the SINDRUM-II positron spectrum
 with a closure approximation spectrum convolved with the resolution $\sigma_P = 2$ MeV/c
@@ -27,7 +33,7 @@ The maximal photon energy allowed kinematically in a
 $$
 \rm \mu^- + \Au{197}(GS) \rightarrow \nu +\gamma + ^{197}Pt(GS)
 $$
-transition is $E_{max} = 93.8$ MeV, which is several MeV higher.
+transition is $E_{max} = 94.3$ MeV, which is several MeV higher.
 
 \vspace{0.1in}
 \begin{tikzpicture}
