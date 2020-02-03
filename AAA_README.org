@@ -16,6 +16,12 @@
   make note
   okular tmp/mu2e_31019.pdf &
 
-* converting a *.ris* reference to *.bib* format (need bibutils rpm)
+* converting a *.ris* reference to *.bib* format (need bibutils rpm) 
   
   cat reference.ris | ris2xml | xml2bib >> ref.bib
+
+* working comments: 
+
+  Michael seems to have oversubtracted m_e when calculating 
+  the RMC photon endpoint on Au - no need to subtract that,
+  he photon mass = 0

@@ -8,6 +8,8 @@ at rest. The calibration has been performed with the magnetic field reduced to a
 of the nominal value. The reconstructed positron momentum distribution is shown
 in Figure \ref{fig:sindrum_ii_fig_08_fit}.
 
+{\bf replace electrons with positrons in the title below}
+
 \vspace{0.1in}
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
@@ -50,23 +52,28 @@ to be the momentum in the first reconstructed point on the trajectory. As such, 
 reconstructed Michel edge should be affected by the energy losses in front of the
 tracker, their fluctuations, as well as the momentum resolution of the tracker.
 According to \cite{sindrum_ii:Bertl2006}, the energy losses in front of the tracker are due to 
-losses in the Au target (75 mg/cm$^2$) and the Al wall of the vacuum chamber (324 mg/cm$^2$).
+losses in the Au target (75 mg/cm$^2$) and the wall of the vacuum chamber (324 mg/cm$^2$),
+main components of which are aluminum and carbon fiber.
 
-To cross check the calibration, we simulate energy losses of positrons with initial
-momenta generated uniformly in the range [45,52.8] MeV/c in a structure consisting
-of the two layers described above. The initial momentum distribution is shown
-in Figure ~\ref{fig:sindrum_ii_michel_calibration}
-in red, the positron momentum distribution on exit is shown in blue.
-%% Currently not shaded, will it be in another figure iteration?
+To validate our understanding of the SINDRUM-II momentum calibration,
+we simulate energy losses of positrons with initial momenta distributed uniformly
+in the range [45,52.8] MeV/c in a structure consisting of the two layers described
+above. The initial momentum distribution is shown
+in Figure ~\ref{fig:sindrum_ii_michel_calibration} in red,
+the positron momentum distribution on exit from the vacuum chamber wall is shown in blue.
+
+{\bf Currently not shaded, need another iteration on the figure}
+
 Shaded is the positron momentum distribution on exit convolved with
-a Gaussian with $\sigma = 0.55$ MeV/c, which corresponds to the SINDRUM-II
+a Gaussian with $\sigma = 0.55$ MeV/c corresponding to the SINDRUM-II
 momentum resolution of 1.3 MeV/c FWHM \cite{sindrum_ii:Kaulard1997_Thesis}.
-From Figure ~\ref{fig:sindrum_ii_michel_calibration} one can see that the effect 
-of double counting of fluctuations of energy losses is small - smearing of the
-positron momentum edge is dominated by the momentum resolution of the tracker.
+The shaded distribution in Figure ~\ref{fig:sindrum_ii_michel_calibration}
+double counts the fluctuations of energy losses, however the impact of double
+counting is small and momentum edge smearing is dominated by the momentum
+resolution of the tracker.
 
-The fit of the lower part of the smeared momentum edge with the Gaussian returns
-$\sigma = 0.63 \pm 0.03$ MeV/c, in agreement with $\sigma = 0.64 \pm 0.03$ MeV/c
+The fit of the high-momentum part of the smeared edge with the Gaussian returns
+$\sigma = 0.63 \pm 0.03$ MeV/c, in good agreement with $\sigma = 0.64 \pm 0.03$ MeV/c
 returned by the fit of the SINDRUM-II spectrum in Figure ~\ref{fig:sindrum_ii_fig_08_fit}.
 
 \begin{figure} 

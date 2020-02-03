@@ -1,16 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \newpage
 \section {Parameterization of the SINDRUM-II detector response}
+\label{sec:detector_response}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Momentum resolution}
 
 Figure ~\ref{fig:dio_1} overlays the electron momentum spectrum measured by SINDRUM-II
-and the DIO spectrum on \Pb{208} calculated in \cite{Watanabe_1993} shifted by 0.5 MeV.
-It is clear that the two spectra have quite different slopes.
-The sign of the difference is easy to understand; in the case of a rapidly falling
-spectrum, the finite experimental resolution smears the spectrum and effectively
-reduces the observed slope. 
+and the DIO spectrum on \Pb{208} calculated in \cite{Watanabe_1993} and shifted by 0.5 MeV
+to account for the difference in the muon binding energies in \Pb{208} and \Au{197}. 
+Both spectra are rapidly falling with momentum and have very different slopes.
+The sign of the difference is easy to understand: in the case of a falling spectrum,
+the finite experimental resolution smears the spectrum and reduces the observed slope. 
 
 \vspace{0.2in}
 \begin{tikzpicture}
@@ -29,19 +30,20 @@ reduces the observed slope.
 }
 \vspace{0.2in}
 
-We make a [simplified] assumption that the detector momentum resolution response
-is symmetric and can be described by a single Gaussian function. 
-The experimental momentum resolution is one of the parameters of the detector response model.
-To choose the optimal value, we vary the resolution in the range [1, 3.5] MeV/c, convolve the
-theoretical DIO spectrum with the given resolution, and use the resulting distribution to fit
-the SINDRUM-II electron spectrum. The fit has one parameter - normalization. The fit $\chi^2$ dependence
-on $\sigma_P$ is shown in Figure ~\ref{fig:ana_step1_fit_sigma}, the best value of the resolution
-parameter is $\sigma_P = 2.0 \pm 0.1$ MeV/c. This value is significantly higher than the momentum
-resolution of the SINDRUM-II detector and is likely due to the contribution of RMC electrons
-unaccounted for in the procedure. As one can see from Figure ~\ref{fig:sindrum_ii_2006_fig_11},
-for momenta close to 90 MeV/c, the contribution of RMC could be non-negligible. As the RMC spectrum
-is less steep than the DIO one, ignoring the RMC contribution should result in a larger value of the
-best resolution parameter returned by the procedure described above.
+We make a simplifying assumption that the detector momentum response function is symmetric and
+can be described by a single Gaussian. To choose the optimal value of the resolution parameter
+$\sigma_P$, we vary its value in the range [1, 3.5] MeV/c, convolve the theoretical DIO spectrum
+with the resolution function, and use the resulting distribution to fit the SINDRUM-II
+electron spectrum. The fit has one parameter - normalization. The fit $\chi^2$ dependence
+on $\sigma_P$ is shown in Figure ~\ref{fig:ana_step1_fit_sigma}.
+%
+The best value of the resolution parameter $\sigma_P = 2.0 \pm 0.1$ MeV/c is significantly
+higher than the SINDRUM-II momentum resolution, which is about 0.5 MeV.
+The difference is most likely due to the contribution of RMC electrons unaccounted for
+in the fitting procedure. As one can see from Figure ~\ref{fig:sindrum_ii_2006_fig_11},
+for momenta close to 90 MeV/c, the RMC contribution can not be ignored, and as the RMC spectrum
+is less steep than the DIO spectrum, ignoring the RMC contribution should result in a
+larger value of $\sigma_P$ returned by the fit. 
 
 \vspace{0.2in}
 \begin{tikzpicture}
@@ -65,11 +67,13 @@ best resolution parameter returned by the procedure described above.
 \subsection{Tracking efficiency}
 
 To parameterize the SINDRUM-II tracking efficiency, we assume that it is flat
-above 80 MeV/c. Normalizing the DIO spectrum convolved with a $\sigma_P = 2.0$ MeV/c
-resolution to the electron data in the region p > 80 MeV/c and dividing the data spectrum
-by the resulting distribution gives the ``efficiency'' dependence on the track momentum
-shown in Figure ~\ref{fig:ana_step1_efficiency}. This distribution is fit well by a 
-linear efficiency below 80 MeV/c and flat above this.
+for momenta p> 80 MeV/c.
+Normalizing the DIO spectrum convolved with a $\sigma_P = 2.0$ MeV/c Gaussian resolution
+to the electron data in the region p > 80 MeV/c and dividing the data spectrum
+by the resulting distribution gives the ``efficiency'' dependence on the track
+momentum. The resulting dependence is shown in Figure ~\ref{fig:ana_step1_efficiency}, 
+and it is fit well by a function represented by a straight line below 80 MeV/c
+and a constant above 80 MeV/c.
 
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
@@ -89,8 +93,10 @@ linear efficiency below 80 MeV/c and flat above this.
 }
 \vspace{0.2in}
 
-This step concludes the tuning of the detector response. Figure \ref{fig:ana_step1_best_dio_fit}
-shows the description of the electron spectrum with the tuned response.
+This step concludes tuning of the detector response. Figure \ref{fig:ana_step1_best_dio_fit}
+shows the description of the SINDRUM-II electron data of \cite{sindrum_ii:Bertl2006}
+with the tuned response - the quality of description is surprisingly good,
+better than one might expect from such a simplistic model.
 
 \vspace{0.2in}
 \begin{tikzpicture}

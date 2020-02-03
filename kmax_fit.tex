@@ -2,9 +2,9 @@
 \newpage
 \section {RMC spectrum and $\kmax$ determination}
 
-Measured RMC photon spectra on nuclei can be successfully described within 
-the closure approximation, which predicts the RMC photon spectrum depending
-on just one parameter - the photon spectrum endpoint:
+Measured RMC photon energy spectra on nuclei can be successfully described
+within the model called closure approximation, which predicts the RMC photon
+spectra depending on just one parameter - the photon spectrum endpoint:
 $$
     \frac{dN}{dE} ~=~ \frac{e^2}{\pi} \frac{\kmax^2}{ m_{\mu}^2} (1 - \alpha) (1-x+2x^2)x(1-x)^2
 $$
@@ -15,26 +15,23 @@ Values of $\kmax$ for different nuclei are not predicted, but determined from th
 to experimental data. Typically, fits return $\kmax$ values significantly lower than
 the kinematically allowed limits. 
 
-Internal conversions from RMC will also contribute to the measured spectrum, but as the virtual
-photon energy distribution should be the same as the real RMC photon energy
-distribution, and since the energy sharing between the positron and electron
-is similar to that of photon conversions, this contribution should be captured by
-fitting the spectrum normalization.
+Internal conversions, or off-shell RMC photons, also contribute to the measured
+spectrum. Assuming that their energy distribution is the same as the energy distribution
+of the on-shell photons, and the energy sharing between the positron and electron
+to be similar in both cases, the contribution of the off-shell photons should be
+accounted for by the spectrum normalization.
 
 We determine the value of the $\kmax$ parameter by fitting the SINDRUM-II positron spectrum
 with a closure approximation spectrum convolved with the resolution $\sigma_P = 2$ MeV/c
 and the efficiency determined from the fit to the electron spectrum
-(see Figure ~\ref{fig:ana_step1_efficiency}) and vary the value of $\kmax$.
-Results of the fit are shown in Figure ~\ref{fig:ana_step2_fit_kmax}, the best fit
-corresponds to $\kmax = 88.0 \pm 0.6$ MeV.
+(see Figure ~\ref{fig:ana_step1_efficiency}) and varying the value of $\kmax$.
+Dependence of the fit $\chi^2$ on $\kmax$ is shown in Figure ~\ref{fig:ana_step2_fit_kmax},
+the best fit corresponds to $\kmax = 88.0 \pm 0.6$ MeV.
 %
-With the energy losses taken into account, the value becomes  $\kmax = 88.6 \pm 0.6$ MeV.
-The maximal photon energy allowed kinematically in a 
-$$
-\rm \mu^- + \Au{197}(GS) \rightarrow \nu +\gamma + ^{197}Pt(GS)
-$$
-transition is $E_{max} = 94.3$ MeV, which is several MeV higher.
-
+With the positron energy losses taken into account, the value becomes $\kmax = 88.6 \pm 0.6$ MeV.
+Consistent with the available experimental data, the maximal photon energy allowed kinematically
+in a $\rm \mu^- + \Au{197}(GS) \rightarrow \nu +\gamma + ^{197}Pt(GS) $ transition
+is $E_{max} = 94.8$ MeV, several MeV higher than the \kmax\ value corresponding to the best fit.
 \vspace{0.1in}
 \begin{tikzpicture}
   \node[anchor=south west,inner sep=0] at (0,0.) {
