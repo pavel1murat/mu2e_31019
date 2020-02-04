@@ -21,7 +21,7 @@ pdf: $(pdfs)
 png: $(pngs) 
 # 	echo $?
 
-note: $(tex_files) # mu2e_31019.tex detector_resolution.tex tracking_efficiency.tex kmax_determination.tex
+note: $(tex_files) pdf 
 	if [ ! -d tmp ] ; then mkdir tmp ; fi ; \
 	pdflatex -output-directory=tmp $^ ; \
 	cd tmp ; \

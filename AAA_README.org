@@ -25,3 +25,14 @@
   Michael seems to have oversubtracted m_e when calculating 
   the RMC photon endpoint on Au - no need to subtract that,
   he photon mass = 0
+
+* energies of various nuclear final states
+
+   file:scripts/pt_isotope_ana.C
+   file:scripts/neutrons_119_ana.C
+
+   the data files below contain data selected from NUBASE'2016 : 
+   file:~/library/atomic_nuclear_data/2016_Ame2016_mass16.txt
+
+   file:data/pt_isotopes.txt
+   file:data/neutrons_119.txt
