@@ -1,8 +1,7 @@
 # a note on SINDRUM-II positron spectrum on gold
 
-* note: file:./tmp/mu2e_31019.pdf
-
-* to check out and build: 
+* note: file:./tmp/mu2e_31019.pdf    
+* to check out and build:                                            
 
   1) configure bibliography:
 
@@ -20,13 +19,13 @@
   
   cat reference.ris | ris2xml | xml2bib >> ref.bib
 
-* working comments: 
+* working comments:                                                  
 
   Michael seems to have oversubtracted m_e when calculating 
   the RMC photon endpoint on Au - no need to subtract that,
   he photon mass = 0
 
-* energies of various nuclear final states
+* energies of various nuclear final states                           
 
    file:scripts/pt_isotope_ana.C
    file:scripts/neutrons_119_ana.C
